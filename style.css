@@ -1,13 +1,15 @@
 html, body {
     height: 100%;
     margin: 0;
+    background-color: gray;
 }
 
 .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: gray;
 }
 
 .board {
@@ -19,12 +21,23 @@ html, body {
     color: white;
     font-size: larger;
 }
+
 .cell {
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.cell-white {
-    background-color: gray;
+
+img {
+    margin: auto;
+    position: absolute;
 }
-.cell-black {
+
+.white {
+    background-color: black;
+}
+
+.black {
     background-color: lightblue;
+
 }
