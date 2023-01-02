@@ -1,3 +1,30 @@
-body {
-    background-color: black;
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    border: 1px solid black;
+    width: 550px;
+    height: 550px;
+    color: white;
+    font-size: larger;
+}
+.cell {
+    
+}
+.cell-white {
+    background-color: gray;
+}
+.cell-black {
+    background-color: lightblue;
 }
