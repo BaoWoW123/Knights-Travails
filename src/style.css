@@ -20,6 +20,9 @@ html, body {
     height: 550px;
     color: white;
     font-size: larger;
+    gap: 3px;
+    background-color: white;
+    border: 3px solid white;
 }
 
 .cell {
