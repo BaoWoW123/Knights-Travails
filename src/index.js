@@ -16,13 +16,14 @@ knight.src = knightImg;
 
 (function createBoard() {
   let color = 'white';
-  //create rows
+      //create rows
       for (let d = 0; d < 8; d++) {
         (color == 'white') ? color = 'black': color = 'white';
-
+        //create cells in row
         for(let i = 0; i < 8; i++) {
           let cell = document.createElement('cell')
-          cell.dataset.id = `${d},${i}`;
+          cell.dataset.id = `${d}${i}`;
+          cell.textContent = `${d}${i}`;
           (color == 'white') ? color = 'black': color = 'white';  
           cell.className = `cell ${color}`;
           board.appendChild(cell);
@@ -31,10 +32,11 @@ knight.src = knightImg;
 return board;
 })()
 
+let knightCoords = '';
+let endCoords = '';
 knightBtn.onclick = addKnight;
 locationBtn.onclick = addLocation;
-startBtn.onclick = knightMoves;
-
+startBtn.onclick = () => knightMoves(knightCoords, endCoords);
 
 function addKnight() {
   cells.forEach(cell => {
@@ -43,20 +45,25 @@ function addKnight() {
   })
 }
 
-function placeKnight() {
-  this.appendChild(knight);
-}
-
-function placeLocation() {
-  this.appendChild(endLocation);
-}
-
 function addLocation() {
     cells.forEach(cell => {
       cell.removeEventListener('click', placeKnight);
       cell.addEventListener('click', placeLocation);
     })
 }
+//add and place Knight/Location are separate functions to target event listener
+function placeKnight() {
+  knightCoords = this.dataset.id;
+  this.appendChild(knight);
+  return this;
+}
+
+function placeLocation() {
+  endCoords = this.dataset.id;
+  this.appendChild(endLocation);
+}
+
+
 
 
 /*
