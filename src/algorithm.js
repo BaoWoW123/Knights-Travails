@@ -1,8 +1,8 @@
 export default function knightMoves(knight, end) {
   if (knight === "") {
-    return console.log("Missing Knight");
+    return alert("Missing Knight");
   } else if (end === "") {
-    return console.log("Missing End Location");
+    return alert("Missing End Location");
   } else {
     knight = knight.split("").map(Number);
     end = end.split("").map(Number);
@@ -67,21 +67,11 @@ class Tree {
     while (endNode) {
       shortestPath.unshift(endNode);
       if (endNode.x == knight[0] && endNode.y == knight[1]) {
-        return console.log(shortestPath);
+        return shortestPath;
       }
       endNode = endNode.parent;
     }
   }
-
-  // while (path.length > 0 ) {
-  //   let something = path[0];
-  //   path.unshift(something.parent);
-  //   console.log(something);
-  //   if (something.parent == knight) {
-  //     console.log(path);
-  //     return path.length = 0;
-  //   }
-  // }
 
   onBoard(x, y) {
     if (x < 0 || x >= 8 || y < 0 || y >= 8) {
@@ -89,28 +79,3 @@ class Tree {
     } else return true;
   }
 }
-
-/* findPath(knight, end) {
-    let current = [end[0], end[1]];
-
-    while (current[0] != knight[0] || current[1] != knight[1]) {
-      path.unshift(current);
-      current = this.prev
-    }
-  } */
-
-/*
-    breadth first traversal with array queue
-    while(queue) {
-      let node = queue.shift()
-      if (node.check == null) {
-        node.check = 1;
-        queue.push(node.left_l);
-      }
-    } */
-
-//how to cancel recursive function once path is found
-//how to find shortest path (dijkstra || var count)
-//how to clean array to path
-//array isn't filtering or pushing right
-//array is in  depth first preorder traversal
